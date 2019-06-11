@@ -1,27 +1,18 @@
 package com.example.tourguide;
 
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 public class FragmentHome extends Fragment {
     LinearLayout llKs;
@@ -29,7 +20,7 @@ public class FragmentHome extends Fragment {
     LinearLayout llAtm;
     LinearLayout llBus;
     FragmentManager fm;
-    ActionBar actionbar;
+    ActionBar actionBar;
     TextView textview;
     LinearLayout.LayoutParams layoutparams;
 
@@ -39,6 +30,7 @@ public class FragmentHome extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
+
         ActionBarTitleGravity();
 
         fm = getActivity().getSupportFragmentManager();
@@ -85,30 +77,9 @@ public class FragmentHome extends Fragment {
     }
 
     private void ActionBarTitleGravity() {
-        actionbar = ((AppCompatActivity) getActivity()).getSupportActionBar();
-
-        textview = new TextView(getContext());
-
-        layoutparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        textview.setLayoutParams(layoutparams);
-
-        textview.setText("Tour Guide App");
-
-        textview.setTypeface(null, Typeface.BOLD);
-
-        textview.setTextColor(Color.WHITE);
-
-        //textview.setGravity(Gravity.CENTER);
-
-        textview.setTextSize(15);
-
-        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-
-        actionbar.setCustomView(textview);
-
-        actionbar.setDisplayHomeAsUpEnabled(true);
-
+        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionBar.setCustomView(R.layout.ab_home);
     }
 
 }
