@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorItemBus">#778899</color>
+    <color name="colorItemHospital">#D0E91ED5</color>
+    <color name="colorItemATM">#009696</color>
+    <color name="colorItemHotel">#ED72AF4C</color>
+    <color name="colorPrimary">#8BC34A</color>
+    <color name="colorPrimaryDark">#78C34A</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="title_color">#8BC34A</color>
+</resources>
