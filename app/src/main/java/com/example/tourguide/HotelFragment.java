@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,11 +27,7 @@ public class HotelFragment extends Fragment {
     ListView lvHt;
     ArrayList<Item> arrayItem;
     CustomAdapter adapter;
-    ActionBar actionbar;
-    TextView textview;
-    LinearLayout.LayoutParams layoutparams;
-
-
+    ActionBar actionBar;
 
     @Nullable
     @Override
@@ -47,27 +44,21 @@ public class HotelFragment extends Fragment {
     }
 
     private void ActionBarTitleGravity() {
-        actionbar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        actionBar.setCustomView(R.layout.custom_action_bar);
 
-        textview = new TextView(getContext());
+        View view = actionBar.getCustomView();
+        TextView tvTitle = view.findViewById(R.id.action_bar_title);
+        ImageView ivBack = view.findViewById(R.id.action_bar_back);
 
-        layoutparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        textview.setLayoutParams(layoutparams);
-
-        textview.setText("Khách Sạn");
-
-        textview.setTypeface(null, Typeface.BOLD);
-
-        textview.setTextColor(Color.WHITE);
-
-        textview.setGravity(Gravity.CENTER);
-
-        textview.setTextSize(15);
-
-        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-
-        actionbar.setCustomView(textview);
+        tvTitle.setText("Khách Sạn");
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
+            }
+        });
     }
 
     private void initData() {

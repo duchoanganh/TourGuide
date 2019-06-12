@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -21,9 +22,6 @@ public class FragmentHome extends Fragment {
     LinearLayout llBus;
     FragmentManager fm;
     ActionBar actionBar;
-    TextView textview;
-    LinearLayout.LayoutParams layoutparams;
-
 
     @Nullable
     @Override
@@ -79,7 +77,15 @@ public class FragmentHome extends Fragment {
     private void ActionBarTitleGravity() {
         actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setCustomView(R.layout.ab_home);
+        actionBar.setCustomView(R.layout.custom_action_bar);
+
+        View view = actionBar.getCustomView();
+        TextView tvTitle = view.findViewById(R.id.action_bar_title);
+        ImageView ivBack = view.findViewById(R.id.action_bar_back);
+
+        tvTitle.setText("Tour Guide");
+        ivBack.setVisibility(View.INVISIBLE);
+
     }
 
 }
